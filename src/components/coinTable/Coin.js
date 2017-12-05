@@ -7,12 +7,11 @@ const socket = io();
 class Coin extends Component {
     constructor(props){
         super(props);
-
         this.state = {}
     }
 
     componentDidMount(){
-        const cryptoSocket = io.connect('https://coinnametbd.herokuapp.com/');
+        const cryptoSocket = io.connect('https://coinzy-alpha.herokuapp.com/');
         cryptoSocket.on('trades', (tradeMsg) => {
             console.log('got message')
             if (this.props.coinData.short === tradeMsg.short){
@@ -21,7 +20,6 @@ class Coin extends Component {
                   coin: tradeMsg
               })
               console.log('setting state')
-
           }
         })
         console.log('mounted', this.props.coinData.short)
