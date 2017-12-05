@@ -11,7 +11,7 @@ class Coin extends Component {
     }
 
     componentDidMount(){
-        const cryptoSocket = io.connect('https://coinzy-alpha.herokuapp.com/', {transport: ['websocket']});
+        const cryptoSocket = io.connect('https://coinzy-alpha.herokuapp.com/');
         cryptoSocket.on('trades', (tradeMsg) => {
             console.log('got message')
             if (this.props.coinData.short === tradeMsg.short){
