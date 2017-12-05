@@ -1,0 +1,20 @@
+$blue: #5d8fc2 !default;
+$widget-bg-common:        #333 !default;
+$bg-addition: rgba($widget-bg-common, 0.3);
+$table-bg-accent:               $bg-addition !default;
+$table-border-color:            rgba($widget-bg-common, 0.35) !default;
+$table-bg-hover:                darken($bg-addition, 100%);
+
+
+table{
+  background-color: $blue;
+  border: $table-border-color;
+}
+
+table, th, td {
+  border: 1px solid rgba(0,0,0,1);
+}
+
+tr:hover{
+  background-color: $table-bg-hover
+}
