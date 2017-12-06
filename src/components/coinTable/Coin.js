@@ -10,18 +10,18 @@ class Coin extends Component {
     }
 
     componentDidMount(){
-        this.cryptoSocket = new WebSocket('wss://coinzy-alpha.herokuapp.com/');
-        this.cryptoSocket.onmessage = (tradeMsg) => {
-            console.log('message')
-            let parsed = JSON.parse(tradeMsg.data)
-             if(this.props.coinData.short === parsed.short){
-                 if(this.state.coin === undefined || _.isEqual(this.state.coin, parsed) === false){
-                         this.setState({
-                             coin: parsed
-                         })
-                     }
-                 }
-            }
+        // this.cryptoSocket = new WebSocket('wss://coinzy-alpha.herokuapp.com/');
+        // this.cryptoSocket.onmessage = (tradeMsg) => {
+        //     console.log('message')
+        //     let parsed = JSON.parse(tradeMsg.data)
+        //      if(this.props.coinData.short === parsed.short){
+        //          if(this.state.coin === undefined || _.isEqual(this.state.coin, parsed) === false){
+        //                  this.setState({
+        //                      coin: parsed
+        //                  })
+        //              }
+        //          }
+        //     }
         
     }
 
