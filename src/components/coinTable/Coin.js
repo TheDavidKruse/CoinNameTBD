@@ -10,7 +10,7 @@ class Coin extends Component {
     }
 
     componentDidMount(){
-        this.cryptoSocket = new WebSocket('ws://coinzy-alpha.herokuapp.com/');
+        this.cryptoSocket = new WebSocket('wss://coinzy-alpha.herokuapp.com/');
         this.cryptoSocket.onmessage = (tradeMsg) => {
             console.log('message')
             let parsed = JSON.parse(tradeMsg.data)
