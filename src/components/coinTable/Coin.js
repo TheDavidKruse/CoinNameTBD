@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-const io = require('socket.io-client');
-const socket = io();
+import _ from 'lodash';
 
 
 
@@ -11,27 +10,29 @@ class Coin extends Component {
     }
 
     componentDidMount(){
-        const cryptoSocket = io.connect('https://coinzy-alpha.herokuapp.com/', {path: '/grape', transport: ['websocket']});
-        cryptoSocket.on('trades', (tradeMsg) => {
-            console.log('got message')
-            if (this.props.coinData.short === tradeMsg.short){
-                // console.log('updating coin', tradeMsg.coin)
-              this.setState({
-                  coin: tradeMsg
-              })
-              console.log('setting state')
-          }
-        })
-        console.log('mounted', this.props.coinData.short)
+        this.cryptoSocket = new WebSocket('ws://coinzy-alpha.herokuapp.com/');
+        this.cryptoSocket.onmessage = (tradeMsg) => {
+            console.log('message')
+            let parsed = JSON.parse(tradeMsg.data)
+             if(this.props.coinData.short === parsed.short){
+                 if(this.state.coin === undefined || _.isEqual(this.state.coin, parsed) === false){
+                         this.setState({
+                             coin: parsed
+                         })
+                     }
+                 }
+            }
+        
     }
 
-    // componentWillUnmount(){
-    //     console.log('unmounted', this);
-    //     socket.disconnect();
-    //   }
+
+    componentWillUnmount(){
+        console.log('unmounted', this.cryptoSocket);
+        this.cryptoSocket.close();
+      }
 
   render () {
-    //   console.log('render', this.props.coinData.short)
+      console.log('render', this.props.coinData.short)
       let coinData = this.props.coinData;
       let style = {
             textAlign:'right'
