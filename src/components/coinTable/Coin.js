@@ -10,26 +10,23 @@ class Coin extends Component {
     }
 
     componentDidMount(){
-        this.cryptoSocket = new WebSocket('wss://coinzy-alpha.herokuapp.com/');
+        this.cryptoSocket = new WebSocket(`ws://localhost:8000`);
         this.cryptoSocket.onmessage = (tradeMsg) => {
-            console.log('message')
             let parsed = JSON.parse(tradeMsg.data)
              if(this.props.coinData.short === parsed.short){
                  if(this.state.coin === undefined || _.isEqual(this.state.coin, parsed) === false){
-                         this.setState({
-                             coin: parsed
-                         })
-                     }
-                 }
+                        this.setState({
+                            coin: parsed
+                        })
+                }
             }
-        
+        }
     }
 
 
     componentWillUnmount(){
-        console.log('unmounted', this.cryptoSocket);
         this.cryptoSocket.close();
-      }
+    }
 
   render () {
       console.log('render', this.props.coinData.short)
