@@ -28,7 +28,7 @@ class Coin extends Component {
         this.cryptoSocket.close();
     }
 
-  render () {
+    render () {
       console.log('render', this.props.coinData.short)
       let coinData = this.props.coinData;
       let style = {
