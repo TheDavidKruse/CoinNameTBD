@@ -1,7 +1,8 @@
 [ignore]
 
 [include]
-
+./src/App.js
+./src/components/**
 [libs]
 
 [lints]

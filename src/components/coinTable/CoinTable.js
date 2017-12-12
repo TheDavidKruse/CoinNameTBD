@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import { Table, Input } from 'reactstrap';
 import { connect } from 'react-redux';
