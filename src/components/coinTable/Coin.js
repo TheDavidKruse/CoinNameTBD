@@ -4,12 +4,48 @@ import React, { Component } from 'react'
 import _ from 'lodash';
 
 
+type SingleCoin = {
+        cap24hrChange: number,
+        long:string, 
+        mktcap:number,
+        perc:number,
+        price:number,
+        shapeshift:boolean,
+        short:string,
+        supply:number,
+        usdVolume:number,
+        volume:number,
+        vwapData:number,
+        vwapDataBTC:number
+}
 
-class Coin extends Component {
-    constructor(props){
-        super(props);
-        this.state = {}
-    }
+type Props = {
+    coinData: SingleCoin,
+    cryptoSocket: Function
+}
+
+type State = {
+    coin:SingleCoin
+}
+
+class Coin extends Component<Props, State> {
+
+        state = {
+            coin: {
+                cap24hrChange: 0,
+                long:'', 
+                mktcap:0,
+                perc:0,
+                price:0,
+                shapeshift:false,
+                short:'',
+                supply:0,
+                usdVolume:0,
+                volume:0,
+                vwapData:0,
+                vwapDataBTC:0
+            }
+        }
 
     componentDidMount(){
         this.cryptoSocket = new WebSocket(`wss://coinzy-alpha.herokuapp.com/`);
@@ -31,7 +67,7 @@ class Coin extends Component {
     }
 
     render () {
-      console.log('render', this.props.coinData.short)
+      console.log('render', this.props)
       let coinData = this.props.coinData;
       let style = {
             textAlign:'right'
