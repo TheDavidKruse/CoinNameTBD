@@ -29,7 +29,6 @@ type State = {
 }
 
 class Coin extends Component<Props, State> {
-
         state = {
             coin: {
                 cap24hrChange: 0,
@@ -49,7 +48,7 @@ class Coin extends Component<Props, State> {
 
     componentDidMount(){
         this.cryptoSocket = new WebSocket(`wss://coinzy-alpha.herokuapp.com/`);
-        this.cryptoSocket.onmessage = (tradeMsg) => {
+        this.cryptoSocket.onmessage = (tradeMsg: Object) => {
             let parsed = JSON.parse(tradeMsg.data)
              if(this.props.coinData.short === parsed.short){
                  if(this.state.coin === undefined || _.isEqual(this.state.coin, parsed) === false){
@@ -72,7 +71,7 @@ class Coin extends Component<Props, State> {
       let style = {
             textAlign:'right'
         }
-        if(this.state.coin){
+        if(this.state.coin.long){
             return (
                 <tr>
                     <td>{`${this.state.coin.long} (${this.state.coin.short})`}</td>
