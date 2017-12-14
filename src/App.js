@@ -7,7 +7,7 @@ import './App.css'
 import CoinTable from './components/coinTable/CoinTable';
 import Header from './components/Header/Header'
 
-class App extends Component {
+class App extends Component<null, null> {
   render() {
     return (
       <Router>
