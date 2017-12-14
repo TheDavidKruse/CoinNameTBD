@@ -7,15 +7,19 @@ import { bindActionCreators } from "redux";
 import * as coinActions from '../../redux/actions/coinAction';
 import Coin from './Coin';
 
-class CoinTable extends Component {
 
-  constructor(){
-    super();
-    this.state={
+type State = {
+  filter: string,
+  maxNumCoins: number
+}
+
+class CoinTable extends Component<null, State> {
+
+state = {
       filter: '',
       maxNumCoins: 40
-    }
   }
+
   componentWillMount(){
     this.props.coinActions.fetchCoinData();
   }
@@ -33,6 +37,7 @@ class CoinTable extends Component {
   }
 
   render () {
+    console.log('Cointable Props', this.props)
     let style = {
       textAlign:'right'
   }

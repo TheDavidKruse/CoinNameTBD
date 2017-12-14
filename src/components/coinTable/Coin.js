@@ -21,7 +21,6 @@ type SingleCoin = {
 
 type Props = {
     coinData: SingleCoin,
-    cryptoSocket: Function
 }
 
 type State = {
@@ -66,7 +65,6 @@ class Coin extends Component<Props, State> {
     }
 
     render () {
-      console.log('render', this.props)
       let coinData = this.props.coinData;
       let style = {
             textAlign:'right'
