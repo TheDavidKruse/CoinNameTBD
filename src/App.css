@@ -1,9 +1,32 @@
-table {
-  background-color: #5d8fc2;
-  border: rgba(51, 51, 51, 0.35); }
-
-table, th, td {
-  border: 1px solid black; }
-
-tr:hover {
-  background-color: rgba(0, 0, 0, 0.3); }
+@media screen and (min-width: 600px) {
+  .container-fluid {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 5em auto;
+    grid-template-rows: 3em auto;
+  }
+  .Header {
+    grid-column: 1/3;
+    font-size: 2em
+  }
+  .Sidebar {
+    width: auto;
+    font-size: 2em
+  }
+}
+@media screen and (max-width: 599px) {
+  .container-fluid {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 3em auto
+  }
+  .Header {
+    grid-column: 1/3;
+    font-size: 1em
+  }
+  .Sidebar {
+    display: none;
+    font-size: 1em
+  }
+}
