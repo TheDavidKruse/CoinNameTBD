@@ -55,7 +55,7 @@ state = {
       .slice(0,40)
     }
     return (
-      <div>
+      <div className='table-large'>
         <Input 
         placeholder='Search Coins'
         onChange={this.onInputChange.bind(this)}
