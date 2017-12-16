@@ -41,7 +41,10 @@ class CoinTableSmall extends Component<null, State> {
         .slice(0,40)      
         return (
         <div className='table-small'>
-            <Input onChange={this.onInputChange.bind(this)}/>
+            <Input 
+              onChange={this.onInputChange.bind(this)}
+              placeholder='Search Coins'
+            />
             <Table>
                 <tbody>
                     {mappedCoins}

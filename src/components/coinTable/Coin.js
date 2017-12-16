@@ -51,9 +51,9 @@ class Coin extends Component<Props, State> {
             let parsed = JSON.parse(tradeMsg.data)
              if(this.props.coinData.short === parsed.short){
                  if(this.state.coin === undefined || _.isEqual(this.state.coin, parsed) === false){
-                        this.setState({
-                            coin: parsed
-                        })
+                    this.setState({
+                        coin: parsed
+                    })
                 }
             }
         }
