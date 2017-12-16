@@ -4,7 +4,7 @@ class Loading extends Component {
   render () {
     return (
       <div>
-          <img src='%PUBLIC_URL%/44frgm.gif'/>
+          <img src='./44frgm.gif'/>
       </div>
     )
   }

@@ -37,7 +37,6 @@ state = {
   }
 
   render () {
-    console.log('Cointable Props', this.props)
     let style = {
       textAlign:'right'
   }
