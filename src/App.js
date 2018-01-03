@@ -32,7 +32,7 @@ class App extends Component<null, State> {
       routedComponents = (
         <Container fluid>
             <Route exact path='/' component={Header}/>
-            <Route exact path='/' component={Sidebar}/>
+            {/* <Route exact path='/' component={Sidebar}/> */}
             <Route exact path='/' component={CoinTable}/>  
         </Container>
       );
@@ -49,11 +49,18 @@ class App extends Component<null, State> {
     return (
       <div>
         <Router>
+          <Container fluid>
           {routedComponents}
+          </Container>
         </Router>
       </div>
     )
   }
 }
+
+  // const stylesheet = {
+  //   backgroundColor: 'blue',
+  //   width: 'auto'
+  // }
 
 export default App;
